@@ -9,7 +9,11 @@
     "lint": "next lint",
     "deploy": "cloudflare && wrangler deploy",
     "preview": "cloudflare && wrangler dev",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
+    "build:worker": "cloudflare",
+    "dev:worker": "wrangler dev --remote",
+    "preview:worker": "npm run build:worker && npm run dev:worker",
+    "deploy:worker": "npm run build:worker && wrangler deploy"
   },
   "dependencies": {
     "next": "14.2.5",
@@ -27,6 +31,6 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
-    "wrangler": "^3.87.0"
+    "wrangler": "https://prerelease-registry.devprod.cloudflare.dev/workers-sdk/prs/7269/npm-package-wrangler-7269"
   }
 }
